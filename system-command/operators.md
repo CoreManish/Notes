@@ -1,3 +1,5 @@
+## Operator in bash
+###### If any operator return true or false, it can be used as condition
 ### Arithmetic operator
 | Operator | Return         | Example        |
 |----------|----------------|----------------|
@@ -8,7 +10,7 @@
 | %        | Remainder      | $(( $a % $b )) |
 
 ### Relational operator
-###### Note : If return is true/false, it can be used as condition
+###### Relational operators are specific to numeric values
 
 | Operator       | Return                               | Example         |
 |----------------|--------------------------------------|-----------------|
@@ -25,3 +27,29 @@
 | >=             | 1 if a greater or equal b else 0     | $(( $a >= $b )) |
 | <              | 1 if a less than b else 0            | $(( $a < $b ))  |
 | <=             | 1 if a less or equal b else 0        | $(( $a <= $b )) |
+
+### String operator
+| Operator | Return                                 | Example        |
+|----------|----------------------------------------|----------------|
+| =        | True if a is same as b                 | [[ $a + $b ]]  |
+| !=       | True if a is not same as b             | [[ $a != $b ]] |
+| <        | True if a comes before b in dictionary | [[ $a < $b ]]  |
+| >        | True if a comes later b in dictionary  | [[ $a > $b ]]  |
+| -n       | True if length of string is non zero   | [[ -n $a ]]    |
+| -z       | True if length of string is zero       | [[ -z $a ]]    |
+| str      | false if str is a empty string         | [[ $a ]]       |
+
+### File test operator
+| Operator | Return                                                    | Example               |
+|----------|-----------------------------------------------------------|-----------------------|
+| -e       | True if file exist                                        | [[ -e file.txt ]]     |
+| -d       | True if file exist and is a directory                     | [[ -d file.txt ]]     |
+| -f       | True if file exist and is a file                          | [[ -f file.txt ]]     |
+| -r       | True if file exist and is readable                        | [[ -r file.txt ]]     |
+| -w       | True if file exist and is writable                        | [[ -w file.txt ]]     |
+| -x       | True if file exist and is executable                      | [[ -x file.txt ]]     |
+| -s       | True if file exist and size greater than 0                | [[ -s file.txt ]]     |
+| -O       | True if file exist and owned by current user              | [[ -O file.txt ]]     |
+| -G       | True if file exist and current user belongs to file group | [[ -G file.txt ]]     |
+| -nt      | True if left is newer than right file                     | [[ file1 -nt file2 ]] |
+| -ot      | True if left is older than right file                     | [[ file -ot file2 ]]  |
