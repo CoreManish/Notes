@@ -1,0 +1,33 @@
+## Expression envelope
+- It is used to envelope some mathematical calculation
+##### There are many ways to write expression:
+1. Using `let` keyword  
+ `let a=$b+5` #No space allowed  
+ `let "a = $b + 5"` #space doesn't matter
+2. Using Square bracket `$[]`  
+   `a=$[ $b + 5]` # Should have spaces
+3. Using Double Parenthesis `$(())` # Prefered method  
+   `a=$(( $b + 5 ))` # Should have spaces  
+   `(( i++ ))` # Increment operator  
+   `(( i-- ))` # Decrement operator
+4. Using `expr` keyword  
+   `a=$( expr $b + 5)` # should have spaces  
+   `expr $b+5` # No spaces ,used to just print the evaluated value  # Didn't work
+   `expr "$b + 5"` # Spaces doesn't matter, used to just print evaluated value # Didn't work
+   
+   
+   
+ ## Conditional statement envelope
+ - It used used to envelope conditional statement
+ - Used to envelop conditions of `if-else` `while` `until`
+ - We will learn about loop and if-else later.
+ - Conditional statement return true or false
+ ##### There are many ways to write conditional statement:
+ 1. Using `test` keyword  
+    `test Hello = Hello` # Space doesn't matter
+ 2. Using square bracket `[]`  
+    `[ Hello = Hello ]` # space important
+ 3. Using double square bracket `[[]]`  # Prefered
+    `[[ Hello = Hello ]]` # Spaces important
+ 4. Using double parenthesis `(())`  
+    `(( Hello = Hello ))` # spaces important # Didn't work
