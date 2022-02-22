@@ -31,7 +31,7 @@
 ### String operator
 | Operator | Return                                 | Example        |
 |----------|----------------------------------------|----------------|
-| =        | True if a is same as b                 | [[ $a + $b ]]  |
+| =        | True if a is same as b                 | [[ $a = $b ]]  |
 | !=       | True if a is not same as b             | [[ $a != $b ]] |
 | <        | True if a comes before b in dictionary | [[ $a < $b ]]  |
 | >        | True if a comes later b in dictionary  | [[ $a > $b ]]  |
