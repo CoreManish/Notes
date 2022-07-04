@@ -33,60 +33,28 @@ Here
   - P(Disease = True) = ⅗
   - P(Disease = False) = ⅖ 
 - Secondly, we calculate the individual probabilities for each feature. 
+  - P(Adult= Yes | Disease = True) = ⅔
+  - P(Gender= Male | Disease = True) = ⅔
+  - P(Fever= Yes | Disease = True) = ⅔
+  - P(Adult= Yes | Disease = False) = ½
+  - P(Gender= Male | Disease = False) = ½
+  - P(Fever = Yes | Disease = False) = ½
+
+- Now, we need to find out two probabilities
+  - (i) P(Disease= True | X) = (P(X | Disease= True) * P(Disease=True))/ P(X) 
+  - P(Disease = True | X) = (( ⅔ *⅔ * ⅔ ) * (⅗))/P(X) = (8/27 * ⅗) / P(X)  = 0.17/P(X) 
+  - (ii) P( Disease = False | X) = (P(X | Disease = False) * P(Disease= False) )/P(X)
+  - P(Disease = False | X) = [(½ * ½ * ½ ) * (⅖)] / P(X)  = [⅛ * ⅖] / P(X)  = 0.05/ P(X) 
 
 
-
-P(Adult= Yes | Disease = True) = ⅔
-P(Gender= Male | Disease = True) = ⅔
-P(Fever= Yes | Disease = True) = ⅔
-
-P(Adult= Yes | Disease = False) = ½
-P(Gender= Male | Disease = False) = ½
-P(Fever = Yes | Disease = False) = ½
-
-Now, we need to find out two probabilities:-
-
-(i) P(Disease= True | X) = (P(X | Disease= True) * P(Disease=True))/ P(X) 
-
-(ii) P( Disease = False | X) = (P(X | Disease = False) * P(Disease= False) )/P(X)
-
- 
-
-P(Disease = True | X) = (( ⅔ *⅔ * ⅔ ) * (⅗))/P(X) = (8/27 * ⅗) / P(X)  = 0.17/P(X) 
+- Now, we calculate estimator probability
+   - P(X) = P(Adult= Yes) * P(Gender = Male ) * P(Fever = Yes) = ⅗ * ⅗ * ⅗ = 27/125 = 0.21
 
  
 
-P(Disease = False | X) = [(½ * ½ * ½ ) * (⅖)] / P(X)  = [⅛ * ⅖] / P(X)  = 0.05/ P(X) 
-
- 
-
-Now, we calculate estimator probability:-
-
- 
-
-P(X) = P(Adult= Yes) * P(Gender = Male ) * P(Fever = Yes)
-
-= ⅗ * ⅗ * ⅗ = 27/125 = 0.21
-
- 
-
-So we get finally:-
-
- 
-
-P(Disease = True | X) = 0.17 / P(X) 
-
-= 0.17 / 0.21 
-
-= 0.80 - (1)
-
- 
-
-P(Disease = False | X) = 0.05 / P(X) 
-
-= 0.05 / 0.21
-
-= 0.23  - (2)
+- So we get finally
+  - P(Disease = True | X) = 0.17 / P(X) = 0.17 / 0.21 = 0.80 - (1)
+  - P(Disease = False | X) = 0.05 / P(X) = 0.05 / 0.21= 0.23  - (2)
 
  
 
