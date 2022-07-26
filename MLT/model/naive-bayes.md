@@ -1,12 +1,21 @@
 ## Naive Bayes
+#### Intro
 - Naive Bayes is a classification algorithm for binary and multi-class classification problems.
 - Naive Bayes is a supervised machine learning algorithm to predict the probability of different classes based on numerous attributes.
 - We will be using Bayes theorem to find probability of a class if data is given
-  -  $  P(class|data)= {\frac{P(data|class) * P(class)}{P(data)}} $
+  -  $P(class|data)= {\frac{P(data|class) * P(class)}{P(data)}}$
  #### The Naive Bayes classifier is based on two essential assumptions:-
  - (i) Conditional Independence - All features are independent of each other. This implies that one feature does not affect the performance of the other. This is the sole reason behind the ‘Naive’ in ‘Naive Bayes.’ 
  - (ii) Feature Importance - All features are equally important. It is essential to know all the features to make good predictions and get the most accurate results. 
-
+#### Theory of Naive Bayes classifier
+- we know Bayes theorem
+  $P(class|data)= {\frac{P(data|class) * P(class)}{P(data)}}$
+- $P(class A | X ) ={\frac {P(X | class A ) * P(class A)}{P(X)}}$ <br>
+or $P(y=class A | X= x_1,x_2,...,x_m ) ={\frac {P( X= x_1,x_2,...,x_m  | y=class A ) * P(y=class A)}{P(X= x_1,x_2,...,x_m )}}$ <br>
+Now using naive assumption <br>
+ $P(class A | X= x_1,x_2,...,x_m ) ={\frac { P( x_1 | class A )*  P( x_2 | class A )....* P( x_m | class A ) * P(class A)}{P(x_1)*P(x_2)...*P(x_m)}}$
+ - simillarly calculate **probability of a class condition that given data** corresponding to all classes
+ - pick class corresponding to maximum probability
 #### Types of Naive Bayes
 Based on what distribution the features of data follow, Naive Bayes is classified into three main types: 
 - Multinomial Naive Bayes
