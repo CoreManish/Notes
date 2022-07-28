@@ -23,7 +23,8 @@ Based on what distribution the features of data follow, Naive Bayes is classifie
 - Gaussian Bayes : when features value follow Gaussian distribution
 
 ## Bernoulli Naive Bayes
-Let us consider the example below to understand Bernoulli  Naive Bayes👎
+Let us consider the example below to understand Bernoulli  Naive Bayes
+##### Question - Classify an instance ‘X’ where Adult=’Yes’, Gender= ‘Male’, and Fever=’Yes’ based on below information
 | Adult | Gender | Fever | Disease |
 |-------|--------|-------|---------|
 | Yes   | Female | No    | False   |
@@ -36,11 +37,18 @@ Here
 - Here, ‘Disease’ is the target, and the rest are the features.
 - we are trying to predict whether a person has a disease or not based on their age, gender, and fever.
 - All values are binary.
-##### Question - Classify an instance ‘X’ where Adult=’Yes’, Gender= ‘Male’, and Fever=’Yes’. 
-##### Approach to solve this question
-- Firstly, we calculate the class probability, probability of disease or not. 
+. 
+##### Solution
+x=(adult=yes,gender=male,fever=yes)
+## $P(y=y_c| x )= {\frac{P(x|y=y_c) * P(y=y_c)}{P(x)}}$ <br> <br>
+## $P(y=y_c| x )= {\frac{P(Adult=yes,Gender=male,Fever=yes|y=y_c) * P(y=y_c)}{P(Adult=yes,Gender=male,Fever=yes)}}$ <br><br>
+## $P(y=y_c| x )= {\frac{P(Adult=yes|y=y_c) * P(Gender=male|Y=y_c) * P(Fever=yes|y=y_c) * P(y=y_c)}{P(Adult=yes) * P(Gender=male) * P(Fever=yes)}}$
+  
+
+- Firstly, we calculate the class probability (aka prior), probability of disease or not. 
   - P(Disease = True) = ⅗
   - P(Disease = False) = ⅖ 
+  
 - Secondly, we calculate the individual probabilities for each feature. 
   - P(Adult= Yes | Disease = True) = ⅔
   - P(Gender= Male | Disease = True) = ⅔
@@ -48,23 +56,16 @@ Here
   - P(Adult= Yes | Disease = False) = ½
   - P(Gender= Male | Disease = False) = ½
   - P(Fever = Yes | Disease = False) = ½
+  
+- Now, we calculate estimator probability (aka Evidence)
+   - P(X) = P(Adult= Yes,Gender = Male ,Fever = Yes)= P(Adult= Yes) * P(Gender = Male ) * P(Fever = Yes) = ⅗ * ⅗ * ⅗ = 27/125 = 0.21
 
 - Now, we need to find out two probabilities
   - (i) P(Disease= True | X) = (P(X | Disease= True) * P(Disease=True))/ P(X) 
-  - P(Disease = True | X) = (( ⅔ *⅔ * ⅔ ) * (⅗))/P(X) = (8/27 * ⅗) / P(X)  = 0.17/P(X) 
+    -  P(Disease = True | X) = (( ⅔ *⅔ * ⅔ ) * (⅗))/0.21 = (8/27 * ⅗) / 0.21  = 0.17/0.21=0.80 
   - (ii) P( Disease = False | X) = (P(X | Disease = False) * P(Disease= False) )/P(X)
-  - P(Disease = False | X) = [(½ * ½ * ½ ) * (⅖)] / P(X)  = [⅛ * ⅖] / P(X)  = 0.05/ P(X) 
+    - P(Disease = False | X) = [(½ * ½ * ½ ) * (⅖)] / 0.21  = [⅛ * ⅖] / 0.21  = 0.05/ 0.21 = 0.23
 
 
-- Now, we calculate estimator probability
-   - P(X) = P(Adult= Yes) * P(Gender = Male ) * P(Fever = Yes) = ⅗ * ⅗ * ⅗ = 27/125 = 0.21
-
- 
-
-- So we get finally
-  - P(Disease = True | X) = 0.17 / P(X) = 0.17 / 0.21 = 0.80 - (1)
-  - P(Disease = False | X) = 0.05 / P(X) = 0.05 / 0.21= 0.23  - (2)
-
- 
 
 Now, we notice that (1) > (2), the result of instance ‘X’ is ‘True’, i.e., the person has the disease.
