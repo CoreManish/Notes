@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text-Binary Interconversion</title>
+</head>
+
+<body>
+
+    <h1>Binary Text </h1>
+    <textarea name="bin" rows="8" cols="80" id="bin">01010010</textarea>
+    <button type="button" name="button" onclick="binaryToText()">Click</button>
+
+    <textarea name="name" rows="8" cols="80" id="text">Enter text</textarea>
+    <button type="button" name="button" onclick="textToBinary()">click</button>
+
+    <h4 id="final"></h4>
+    <h4 id="final1"></h4>
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    function binaryToText() {
+        binary = document.getElementById("bin").value;
+        //Convert the binary into an array of binary strings separated by whitespace.
+        binary = binary.split(' ');
+        //convert from binary to decimals, then to characters.
+        text = binary.map(elem => String.fromCharCode(parseInt(elem, 2))).join("");
+        document.getElementById("final").innerHTML = text;
+    }
+
+
+
+
+    function textToBinary() {
+        var input = document.getElementById("text").value;
+        var out = " ";
+        for (i = 0; i < input.length; i++) {
+            out += input[i].charCodeAt(0).toString(2) + " ";
+        }
+        document.getElementById("final1").innerHTML = out;
+    }
+</script>

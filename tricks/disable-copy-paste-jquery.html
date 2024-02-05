@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+        integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Disable full page
+            $('body').bind('cut copy paste', function (e) {
+                e.preventDefault();
+            });
+
+            //Disable part of page
+            $('#special').bind('cut copy paste', function (e) {
+                e.preventDefault();
+                // if want to show alert in case of #id
+                alert('cut,copy & paste options are disabled for special div!!');
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+
+    <div id="special">This is special div</div>
+
+</body>
+
+</html>
